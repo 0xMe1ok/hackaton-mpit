@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <%- include('blocks/header.ejs') -%>
+        <main>
+            <div id="tourist-flow">
+                <h3>Турпоток</h3>
+                <p class="plan">План:
+                    <%= tourist_flow.plan %>
+                </p>
+                <p class="fact">Факт:
+                    <%= tourist_flow.fact %>
+                </p>
+                <p id="tourist-flow-response"></p>
+                <form id="form-tourist-flow" action="/tourist-flow" method="POST">
+                    <input type="submit" value="Получить отчет" />
+                </form>
+            </div>
+            <div id=" investor-provision "></div>
+            <div id="resources-prospect "></div>
+            <div id="object-data ">
+
+            </div>
+            <div id="map ">
+
+            </div>
+        </main>
+
+        <script src="/js/ajax.js"></script>
+</body>
+
+</html>

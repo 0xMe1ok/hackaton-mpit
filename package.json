@@ -1,0 +1,23 @@
+{
+    "name": "mpit-hackaton-case",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "pkg": {
+        "assets": [
+            "views/**/*"
+        ],
+        "output": "dist"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.20.3",
+        "ejs": "^3.1.10",
+        "express": "^4.21.1",
+        "gigachat-node": "^2.1.4"
+    }
+}
