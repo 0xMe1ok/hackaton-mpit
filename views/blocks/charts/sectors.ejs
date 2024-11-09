@@ -1,0 +1,30 @@
+<canvas id="sectors-chart"></canvas>
+
+<script>
+    const ctx_sectors = document.getElementById('sectors-chart');
+    const a = <%= tourist_dist.A %>;
+    const b = <%= tourist_dist.B %>;
+    const c = <%= tourist_dist.C %>;
+    const d = <%= tourist_dist.D %>;
+    const e = <%= tourist_dist.E %>;
+    const f = <%= tourist_dist.F %>;
+
+    new Chart(ctx_sectors, {
+        type: 'doughnut',
+        data: {
+            labels: ['A', 'B', 'C', 'D', 'E', 'F'],
+            datasets: [{
+                label: 'Распределение туристов по секторам',
+                data: [a, b, c, d, e, f],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

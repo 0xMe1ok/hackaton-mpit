@@ -10,32 +10,32 @@
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <%- include('blocks/header.ejs') -%>
         <main>
             <div id="tourist-flow">
                 <h3>Турпоток</h3>
-                <p class="plan">План:
-                    <%= tourist_flow.plan %>
-                </p>
-                <p class="fact">Факт:
-                    <%= tourist_flow.fact %>
-                </p>
-                <p id="tourist-flow-response"></p>
-                <form id="form-tourist-flow" action="/tourist-flow" method="POST">
-                    <input type="submit" value="Получить отчет" />
+                <%- include('blocks/charts/tourflow.ejs') -%>
+                    <p id="tourist-flow-response" class="response-text"></p>
+            </div>
+
+            <div id="tourist-dist">
+                <h3>Распределение туристов по секторам</h3>
+                <%- include('blocks/charts/sectors.ejs') -%>
+                    <p id="tourist-dist-response" class="response-text"></p>
+            </div>
+
+            <div id="report">
+                <p id="report-response" class="response-text"></p>
+                <form id="form-report" action="/make-report" method="POST">
+                    <input type="submit" class="btn" value="Получить отчет" />
                 </form>
             </div>
-            <div id=" investor-provision "></div>
-            <div id="resources-prospect "></div>
-            <div id="object-data ">
 
-            </div>
-            <div id="map ">
-
-            </div>
         </main>
 
         <script src="/js/ajax.js"></script>
+        <script src="/js/charts.js"></script>
 </body>
 
 </html>

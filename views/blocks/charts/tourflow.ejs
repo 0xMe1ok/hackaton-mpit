@@ -1,0 +1,31 @@
+<canvas id="tourflow-chart"></canvas>
+
+<script>
+    const ctx_tourflow = document.getElementById('tourflow-chart');
+    const plan = <%= tourist_flow.plan %>;
+    const fact = <%= tourist_flow.fact %>;
+
+    new Chart(ctx_tourflow, {
+        type: 'bar',
+        data: {
+            labels: ['План', 'Факт'],
+            datasets: [{
+                label: 'Распределение туристов по секторам',
+                data: [plan, fact],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Турпоток за 2021 год'
+                }
+            }
+        }
+    });
+</script>

@@ -1,0 +1,31 @@
+<canvas id="roomfund-chart"></canvas>
+
+<script>
+    const ctx_roomfund = document.getElementById('roomfund-chart');
+    const plan = <%= tourist_flow.plan %>;
+    const fact = <%= tourist_flow.fact %>;
+
+    new Chart(ctx_roomfund, {
+        type: 'bar',
+        data: {
+            labels: ['План', 'Факт'],
+            datasets: [{
+                label: 'Номерной фонд',
+                data: [plan, fact],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Турпоток за 2021 год'
+                }
+            }
+        }
+    });
+</script>
