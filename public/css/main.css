@@ -6,7 +6,7 @@
 body {
     background-color: #191919;
     color: #f0f0f0;
-    font: 1em 'Segoe UI';
+    font: 1em 'Montserrat', 'Segoe UI';
 }
 
 header {
@@ -21,7 +21,7 @@ header {
 header span {
     font-size: 25px;
     font-weight: bold;
-    color: #ff6060;
+    color: #f0f0f0;
 }
 
 header nav a {
