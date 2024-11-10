@@ -2,7 +2,7 @@
     <% Object.keys(lift_load).forEach(function(sector) { %>
         <p class>Сектор
             <%= sector %> -
-                <%= lift_load[sector] %>%
+                <%= lift_load[sector] %>% <span style="background-color: <%= lift_load_change[sector] < 0 ? 'red' : 'green' %>; color: black; font-weight: 900; padding: 5px; border-radius: 5px;"><%= lift_load_change[sector] %>%</span>
         </p>
         <% }) %>
 </div>
