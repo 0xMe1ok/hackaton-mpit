@@ -1,11 +1,5 @@
 const express = require('express');
-const pseudodata = require('./config/pseudodata.json');
-
-// MySql
-const mysql = require("mysql2");
-
-const dbconfig = require("./config/db.json");
-const connection = mysql.createConnection(dbconfig);
+const fs = require('fs');
 
 // GigaChat
 const clientKey = require('./config/gigachad.json').clientKey;
@@ -43,21 +37,14 @@ app.use(express.static('public'));
 
 // Get section
 app.get('/', async(req, res) => {
-    let touristflow, touristdist, taxreveniue;
-
+    let rawdata = fs.readFileSync('./config/pseudodata.json');
+    let pdata = JSON.parse(rawdata);
     const data = {
-        tourist_flow: {
-            "plan": pseudodata.touristflow.plan,
-            "fact": pseudodata.touristflow.fact
-        },
-        tourist_dist: {
-            "A": pseudodata.touristdist.A,
-            "B": pseudodata.touristdist.B,
-            "C": pseudodata.touristdist.C,
-            "D": pseudodata.touristdist.D,
-            "E": pseudodata.touristdist.E,
-            "F": pseudodata.touristdist.F
-        }
+        tourist_dist: pdata.touristdist,
+        tourist_flow: pdata.touristflow,
+        investor_supply: pdata.investorsupply,
+        build_readiness: pdata.buildreadiness,
+        room_fund: pdata.roomfund
     };
     res.render('index', data);
 });
@@ -69,17 +56,18 @@ app.get('/about', (req, res) => {
 // Post section
 app.post('/make-report', jsonParser, async(req, res) => {
     await GCprepare();
-    const msg = await GCmsg(promptBegin + `Поток туристов в Шерегеше: План: ${pseudodata.touristflow.plan}, Факт: ${pseudodata.touristflow.fact}. 
+    const msg = await GCmsg(promptBegin + `Поток туристов в Шерегеше: План: ${pdata.touristflow.plan}, Факт: ${pdata.touristflow.fact}. 
                                            Сделай вывод, и если факт меньше плана, то дай совет по развитию.` +
-        ` Также представлено распределение туристов Шерегеша по секторам: A: ${pseudodata.touristdist.A}, 
-                                           B: ${pseudodata.touristdist.B}, 
-                                           C: ${pseudodata.touristdist.C}, 
-                                           D: ${pseudodata.touristdist.D},
-                                           E: ${pseudodata.touristdist.E}, 
-                                           F: ${pseudodata.touristdist.F}.
+        ` Также представлено распределение туристов Шерегеша по секторам: A: ${pdata.touristdist.A}, 
+                                           B: ${pdata.touristdist.B}, 
+                                           C: ${pdata.touristdist.C}, 
+                                           D: ${pdata.touristdist.D},
+                                           E: ${pdata.touristdist.E}, 
+                                           F: ${pdata.touristdist.F}.
                                            Что может помочь увеличить количество туристов в секторах с наименьшим числом туристов?`);
-    console.log(msg);
-    res.send(msg);
+
+    const pdf = await PdfDocument.fromHtml("<h1>Testing</h1>");
+    await pdf.saveAs("pdf-from-html.pdf");
 });
 
 // App listen
