@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #191919;
+    background: linear-gradient(90deg, #333, #000);
     color: #f0f0f0;
     font: 1em 'Montserrat', 'Segoe UI';
 }
@@ -13,15 +13,35 @@ header {
     width: 90%;
     padding: 20px 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
-    background: #191919;
 }
 
 header span {
     font-size: 25px;
     font-weight: bold;
     color: #f0f0f0;
+}
+
+header nav {
+    background-color: #3D3C47;
+    padding: 10px 20px 10px 10px;
+    border-radius: 20px;
+    margin-left: 30%;
+}
+
+.selected {
+    background-color: #33c;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+}
+
+header nav a:first-of-type {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin-left: -10px;
 }
 
 header nav a {
@@ -34,36 +54,62 @@ header nav a:hover {
     text-decoration: underline wavy;
 }
 
-main {
+#tourists-info {
     width: 95%;
-    margin: 50px auto;
-    border-radius: 10px;
+    margin: 5px auto;
     padding: 20px;
-    justify-content: center;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(12, 50px);
+    gap: 20px 20px;
+    grid-template-areas: "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload";
+}
+
+.dashboard-item {
+    border-radius: 10px;
+    border: 1px white solid;
+    background-color: #3D3C47;
     display: flex;
-    flex: 1 0 33%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+.dashboard-item .wrap-canvas {
+    height: 75%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tourist-flow {
+    grid-area: tourflow;
+}
+
+#tourist-dist {
+    grid-area: tourdist;
+}
+
+#roomfund {
+    grid-area: roomfund;
+}
+
+#lifttime {
+    grid-area: lifttime;
+}
+
+#liftload {
+    grid-area: liftload;
 }
 
 main h1 {
     padding-bottom: 20px;
 }
 
-main div {
-    flex: 1;
-    max-width: 33.33%;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    border: 1px white solid;
-    padding: 5px;
-    margin: 15px;
-    background-color: #3d3c47;
-}
-
-main div h3 {
-    padding: 20px;
+main div h2 {
+    padding: 1px;
 }
 
 main div .btn {
@@ -81,6 +127,10 @@ main div .btn:hover {
 }
 
 .response-text {
-    font-size: 1.1em;
+    font-size: 1em;
     padding: 10px;
+}
+
+#report-response {
+    justify-content: left;
 }

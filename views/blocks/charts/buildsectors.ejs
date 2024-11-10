@@ -1,0 +1,31 @@
+<div class="wrap-canvas">
+    <canvas id="buildsectors-chart"></canvas>
+</div>
+
+<script>
+    const ctx_buildsectors = document.getElementById('buildsectors-chart');
+
+    new Chart(ctx_buildsectors, {
+        type: 'doughnut',
+        data: {
+            labels: ["A", "B", "C", "D", "E", "F"],
+            datasets: [{
+                label: 'Обеспеченность инвесторов по секторам',
+                data: [<%= Object.values(build_readiness) %>],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Обеспеченность инвесторов за 2023 год'
+                }
+            }
+        }
+    });
+</script>

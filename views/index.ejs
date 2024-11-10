@@ -11,25 +11,43 @@
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <%- include('blocks/header.ejs') -%>
+    <header>
+        <span>ShowLytics</span>
+        <nav>
+            <a href="/" class="selected">Туристы</a>
+            <a href="/bonuses">Бонусная программа</a>
+            <a href="/infrastructure">Инфраструктура</a
+        </nav>
+            <form action="">
+                
+            </form>
+    </header>
         <main>
-            <div id="tourist-flow">
-                <h3>Турпоток</h3>
-                <%- include('blocks/charts/tourflow.ejs') -%>
-                    <p id="tourist-flow-response" class="response-text"></p>
-            </div>
+            <div id="tourists-info">
+                <div id="tourist-flow" class="dashboard-item">
+                    <h2>Турпоток</h2>
+                    <%- include('blocks/charts/tourflow.ejs') -%>
+                </div>
 
-            <div id="tourist-dist">
-                <h3>Распределение туристов по секторам</h3>
-                <%- include('blocks/charts/sectors.ejs') -%>
-                    <p id="tourist-dist-response" class="response-text"></p>
-            </div>
+                <div id="roomfund" class="dashboard-item">
+                    <h2>Номерной фонд</h2>
+                    <%- include('blocks/charts/roomfund.ejs') -%>
+                </div>
 
-            <div id="report">
-                <p id="report-response" class="response-text"></p>
-                <form id="form-report" action="/make-report" method="POST">
-                    <input type="submit" class="btn" value="Получить отчет" />
-                </form>
+                <div id="tourist-dist" class="dashboard-item">
+                    <h2>Распределение туристов по месту пребывания (%)</h2>
+                    <%- include('blocks/charts/touristdist.ejs') -%>
+                </div>
+
+                <div id="lifttime" class="dashboard-item">
+                    <h2>Время работы подьемника</h2>
+
+                </div>
+
+                <div id="liftload" class="dashboard-item">
+                    <h2>Загружка подьемника</h2>
+
+                </div>
             </div>
 
         </main>

@@ -1,0 +1,31 @@
+<div class="wrap-canvas">
+    <canvas id="tourdist-chart" style="height: 60%;"></canvas>
+</div>
+
+<script>
+    const ctx_tourdist = document.getElementById('tourdist-chart');
+
+    new Chart(ctx_tourdist, {
+        type: 'doughnut',
+        data: {
+            labels: ["A", "B", "C", "D", "E", "F"],
+            datasets: [{
+                label: 'Расположение по сектору',
+                data: [<%= Object.values(tourist_dist) %>],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Расположение туристов за 2023 год'
+                }
+            }
+        }
+    });
+</script>

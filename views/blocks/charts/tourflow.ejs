@@ -1,9 +1,9 @@
-<canvas id="tourflow-chart"></canvas>
+<div class="wrap-canvas">
+    <canvas id="tourflow-chart"></canvas>
+</div>
 
 <script>
     const ctx_tourflow = document.getElementById('tourflow-chart');
-    const plan = <%= tourist_flow.plan %>;
-    const fact = <%= tourist_flow.fact %>;
 
     new Chart(ctx_tourflow, {
         type: 'bar',
@@ -11,7 +11,7 @@
             labels: ['План', 'Факт'],
             datasets: [{
                 label: 'Распределение туристов по секторам',
-                data: [plan, fact],
+                data: [<%= Object.values(tourist_flow) %>],
                 borderWidth: 1
             }]
         },
@@ -23,7 +23,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Турпоток за 2021 год'
+                    text: 'Турпоток за 2023 год'
                 }
             }
         }

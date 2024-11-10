@@ -15,9 +15,11 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@ironsoftware/ironpdf": "^2024.10.8",
         "body-parser": "^1.20.3",
         "ejs": "^3.1.10",
         "express": "^4.21.1",
-        "gigachat-node": "^2.1.4"
+        "gigachat-node": "^2.1.4",
+        "markdown-it": "^14.1.0"
     }
 }

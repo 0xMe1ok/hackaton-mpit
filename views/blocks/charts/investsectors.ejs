@@ -8,10 +8,10 @@
     new Chart(ctx_sectors, {
         type: 'bar',
         data: {
-            labels: ["2021", "2022", "2023"],
+            labels: ["A", "B", "C", "D", "E", "F"],
             datasets: [{
-                label: 'Номерной фонд',
-                data: [<%= Object.values(room_fund) %>],
+                label: 'Обеспеченность инвесторов по секторам',
+                data: [<%= Object.values(investor_supply) %>],
                 borderWidth: 1
             }]
         },
@@ -23,7 +23,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Номерной фонд за 2023'
+                    text: 'Турпоток за 2021 год'
                 }
             }
         }
