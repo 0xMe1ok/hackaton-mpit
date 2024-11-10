@@ -44,12 +44,18 @@ app.get('/', async(req, res) => {
     res.render('index', data);
 });
 
-// Get section
 app.get('/infrastructure', async(req, res) => {
     let rawdata = fs.readFileSync('./config/pseudodata.json');
     let pdata = JSON.parse(rawdata);
     const data = pdata.infrastructure;
     res.render('infrastructure', data);
+});
+
+app.get('/bonuses', async(req, res) => {
+    let rawdata = fs.readFileSync('./config/pseudodata.json');
+    let pdata = JSON.parse(rawdata);
+    const data = pdata.bonuses;
+    res.render('bonuses', data);
 });
 
 app.get('/downloadPdf', async(req, res) => {

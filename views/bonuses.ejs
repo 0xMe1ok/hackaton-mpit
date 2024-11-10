@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <header>
+        <span>ShowLytics</span>
+        <nav class="bonuses-nav">
+            <a href="/">Туристы</a>
+            <a href="/bonuses" class="selected">Бонусная программа</a>
+            <a href="/infrastructure">Инфраструктура и инвесторы</a>
+        </nav>
+        <form id="get-report" method="post" action="/get-report">
+            <button onclick="location.href='/downloadPdf'" type="submit" class="button"><img src="/img/light_file.png"></button>
+        </form>
+    </header>
+    <main>
+        <div id="bonuses-info">
+            <div id="tourist-flow" class="dashboard-item">
+                <span class="title"><h2>Участники бонусной программы</h2></span>
+                <%- include('blocks/charts/bonusmembers.ejs') -%>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="/js/ajax.js"></script>
+</body>
+
+</html>

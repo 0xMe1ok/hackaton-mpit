@@ -23,16 +23,23 @@ header span {
     color: #f0f0f0;
 }
 
-header .tourists {
+header .tourists-nav {
     background-color: #3D3C47;
     padding: 10px 20px 10px 10px;
     border-radius: 20px;
     margin-left: 25%;
 }
 
-header .infrastructure {
+header .infrastructure-nav {
     background-color: #3D3C47;
     padding: 10px 0px 10px 30px;
+    border-radius: 20px;
+    margin-left: 25%;
+}
+
+header .bonuses-nav {
+    background-color: #3D3C47;
+    padding: 10px 10px 10px 30px;
     border-radius: 20px;
     margin-left: 25%;
 }
@@ -117,6 +124,12 @@ header nav a:hover {
 
 #build-readiness {
     grid-area: buildreadiness;
+}
+
+#bonuses-info {
+    width: 95%;
+    margin: 5px auto;
+    padding: 20px;
 }
 
 .item-wrap-percent {

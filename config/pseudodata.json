@@ -40,8 +40,12 @@
             "F": 5.2
         }
     },
-    "bonusprogramm": {
-
+    "bonuses": {
+        "bonus_members": {
+            "2021": 134540,
+            "2022": 154350,
+            "2023": 165340
+        }
     },
     "infrastructure": {
         "investor_supply": {

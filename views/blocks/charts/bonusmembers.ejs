@@ -1,0 +1,31 @@
+<div class="wrap-canvas">
+    <canvas id="bonusmembers-chart"></canvas>
+</div>
+
+<script>
+    const ctx_bonusmembers = document.getElementById('bonusmembers-chart');
+
+    new Chart(ctx_bonusmembers, {
+        type: 'bar',
+        data: {
+            labels: ["2021", "2022", "2023"],
+            datasets: [{
+                label: 'Номерной фонд',
+                data: [<%= Object.values(bonus_members) %>],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Номерной фонд за 2023'
+                }
+            }
+        }
+    });
+</script>
