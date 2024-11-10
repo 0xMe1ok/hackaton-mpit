@@ -13,47 +13,50 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <header>
         <span>ShowLytics</span>
-        <nav>
+        <nav class="tourists">
             <a href="/" class="selected">Туристы</a>
             <a href="/bonuses">Бонусная программа</a>
-            <a href="/infrastructure">Инфраструктура</a
+            <a href="/infrastructure">Инфраструктура и инвесторы</a>
         </nav>
-            <form action="">
-                
-            </form>
+        <form id="get-report" method="post" action="/get-report">
+            <button onclick="location.href='/downloadPdf'" type="submit" class="button"><img src="/img/light_file.png"></button>
+        </form>
     </header>
-        <main>
-            <div id="tourists-info">
-                <div id="tourist-flow" class="dashboard-item">
-                    <h2>Турпоток</h2>
-                    <%- include('blocks/charts/tourflow.ejs') -%>
-                </div>
-
-                <div id="roomfund" class="dashboard-item">
-                    <h2>Номерной фонд</h2>
-                    <%- include('blocks/charts/roomfund.ejs') -%>
-                </div>
-
-                <div id="tourist-dist" class="dashboard-item">
-                    <h2>Распределение туристов по месту пребывания (%)</h2>
-                    <%- include('blocks/charts/touristdist.ejs') -%>
-                </div>
-
-                <div id="lifttime" class="dashboard-item">
-                    <h2>Время работы подьемника</h2>
-
-                </div>
-
-                <div id="liftload" class="dashboard-item">
-                    <h2>Загружка подьемника</h2>
-
-                </div>
+    <main>
+        <div id="tourists-info">
+            <div id="tourist-flow" class="dashboard-item">
+                <span class="title"><h2>Турпоток</h2></span>
+                <%- include('blocks/charts/tourflow.ejs') -%>
             </div>
 
-        </main>
+            <div id="roomfund" class="dashboard-item">
+                <span class="title"><h2>Номерной фонд</h2></span>
 
-        <script src="/js/ajax.js"></script>
-        <script src="/js/charts.js"></script>
+                <%- include('blocks/charts/roomfund.ejs') -%>
+            </div>
+
+            <div id="tourist-dist" class="dashboard-item">
+                <span class="title"><h2>Распределение туристов по месту пребывания (%)</h2></span>
+
+                <%- include('blocks/charts/touristdist.ejs') -%>
+            </div>
+
+            <div id="lifttime" class="dashboard-item">
+                <span class="title"><h2>Среднее время подъема канатных дорог</h2></span>
+
+                <%- include('blocks/info/lifttime.ejs') -%>
+            </div>
+
+            <div id="liftload" class="dashboard-item">
+                <span class="title"><h2>Загрузка подьемников</h2></span>
+
+                <%- include('blocks/info/liftload.ejs') -%>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/js/ajax.js"></script>
 </body>
 
 </html>

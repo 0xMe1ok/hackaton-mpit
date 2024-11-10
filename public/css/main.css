@@ -23,11 +23,18 @@ header span {
     color: #f0f0f0;
 }
 
-header nav {
+header .tourists {
     background-color: #3D3C47;
     padding: 10px 20px 10px 10px;
     border-radius: 20px;
-    margin-left: 30%;
+    margin-left: 25%;
+}
+
+header .infrastructure {
+    background-color: #3D3C47;
+    padding: 10px 0px 10px 30px;
+    border-radius: 20px;
+    margin-left: 25%;
 }
 
 .selected {
@@ -65,25 +72,6 @@ header nav a:hover {
     grid-template-areas: "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow tourdist tourdist" "tourflow tourflow lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload" "roomfund roomfund lifttime liftload";
 }
 
-.dashboard-item {
-    border-radius: 10px;
-    border: 1px white solid;
-    background-color: #3D3C47;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px;
-}
-
-.dashboard-item .wrap-canvas {
-    height: 75%;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #tourist-flow {
     grid-area: tourflow;
 }
@@ -104,12 +92,75 @@ header nav a:hover {
     grid-area: liftload;
 }
 
+#infrastructure-info {
+    width: 95%;
+    margin: 5px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 400px);
+    gap: 20px 20px;
+    grid-template-areas: "investsupply resourseprospect resourseprospect" "generalpercent generalpercent buildreadiness";
+}
+
+#invest-supply {
+    grid-area: investsupply;
+}
+
+#resourse-prospect {
+    grid-area: resourseprospect;
+}
+
+#general-percent {
+    grid-area: generalpercent;
+}
+
+#build-readiness {
+    grid-area: buildreadiness;
+}
+
+.item-wrap-percent {
+    border-radius: 10px;
+    border: 1px white solid;
+    background-color: #2D2C37;
+    padding: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-item {
+    border-radius: 10px;
+    border: 1px white solid;
+    background-color: #3D3C47;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+.dashboard-item .wrap-canvas {
+    height: 75%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-item .wrap-items {
+    height: 75%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 main h1 {
     padding-bottom: 20px;
 }
 
 main div h2 {
-    padding: 1px;
+    padding-left: 10px;
 }
 
 main div .btn {
@@ -133,4 +184,37 @@ main div .btn:hover {
 
 #report-response {
     justify-content: left;
+}
+
+.title {
+    display: flex;
+    justify-content: start;
+    width: 95%;
+}
+
+#get-report {
+    padding-left: 20%;
+}
+
+.button {
+    border: 0;
+    background-color: #33c;
+    padding: 2px;
+    color: white;
+    border-radius: 10px;
+    font: 1em 'Montserrat', 'Segoe UI';
+    animation: 500ms;
+}
+
+.button:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+.button:focus {
+    scale: 0.8;
+}
+
+#btn-report {
+    background: url(/img/light_file.png) no-repeat scroll 7px 7px;
 }

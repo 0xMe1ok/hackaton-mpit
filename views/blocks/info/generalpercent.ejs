@@ -1,0 +1,8 @@
+<div class="wrap-items">
+    <% Object.keys(general_percent).forEach(function(title) { %>
+        <div class="item-wrap-percent">
+            <span><%= title %></span>
+            <span><%= general_percent[title] %>%</span>
+        </div>
+        <% }) %>
+</div>

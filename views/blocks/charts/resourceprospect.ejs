@@ -1,16 +1,16 @@
 <div class="wrap-canvas">
-    <canvas id="buildsectors-chart"></canvas>
+    <canvas id="resource-chart"></canvas>
 </div>
 
 <script>
-    const ctx_buildsectors = document.getElementById('buildsectors-chart');
+    const ctx_recources = document.getElementById('resource-chart');
 
-    new Chart(ctx_buildsectors, {
-        type: 'doughnut',
+    new Chart(ctx_recources, {
+        type: 'line',
         data: {
-            labels: ["A", "B", "C", "D", "E", "F"],
+            labels: ["2021", "2022", "2023"],
             datasets: [{
-                label: 'Обеспеченность инвесторов по секторам',
+                label: 'Перспектива увеличения ресурсов по годам',
                 data: [<%= Object.values(resource_prospect) %>],
                 borderWidth: 1
             }]
@@ -23,7 +23,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Обеспеченность инвесторов за 2023 год'
+                    text: 'Перспектива увеличения ресурсов по годам'
                 }
             }
         }

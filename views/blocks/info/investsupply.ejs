@@ -1,0 +1,8 @@
+<div class="wrap-items">
+    <% Object.keys(investor_supply).forEach(function(sector) { %>
+        <p class>Сектор
+            <%= sector %> -
+                <%= investor_supply[sector] %>%
+        </p>
+        <% }) %>
+</div>
